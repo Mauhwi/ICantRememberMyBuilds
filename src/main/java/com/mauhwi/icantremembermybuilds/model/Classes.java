@@ -1,7 +1,7 @@
-package model.eso;
+package com.mauhwi.icantremembermybuilds.model;
 
 public enum Classes {
-    Shadow("resources/images/shadow_icon.png"), Necromancer("resources/images/necromancer_icon.png"),
+    Nightblade("resources/images/nightblade_icon.png"), Necromancer("resources/images/necromancer_icon.png"),
     Templar("resources/images/templar_icon.png"), Dragonknight("resources/images/dragonknight_icon.png");
 
     public final String imagePath;

@@ -15,6 +15,7 @@ h1 {
 }
 
 .bottom {
+    padding-top: 8px;
     background-color: #2d2d2e;
 }
 
@@ -24,4 +25,22 @@ h1 {
 
 .card {
     background-color: #101213;
+}
+
+.card-text {
+    color: #F8C471;
+}
+
+.card-title {
+   color: #F8C471;
+}
+
+.btn {
+    color: #F8C471;
+    border-color: #F8C471;
+}
+
+hr {
+    margin: 0;
+    background-color: #F8C471;
 }

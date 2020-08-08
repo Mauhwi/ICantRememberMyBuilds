@@ -1,4 +1,4 @@
-package model.eso;
+package com.mauhwi.icantremembermybuilds.model;
 
 import javax.persistence.*;
 
@@ -101,11 +101,96 @@ public class Esochar {
     @Column(name="Ultimate 2")
     private int ultimate2;
 
+    //-----------------------------------------CP-----------------------------------------
+    // Warrior:
+    @Column(name="Quick Recovery")
+    private int quickRecovery;
+    @Column(name="Heavy Armor Focus")
+    private int heavyArmorFocus;
+    @Column(name="Bastion")
+    private int bastion;
+    @Column(name="Expert Defender")
+    private int expertDefender;
+    @Column(name="Thick Skinned")
+    private int thickSkinned;
+    @Column(name="Elemental Defender")
+    private int elementalDefender;
+    @Column(name="Light Armor Focus")
+    private int lightArmorFocus;
+    @Column(name="Hardy")
+    private int hardy;
+    @Column(name="Medium Armor Focus")
+    private int mediumArmorFocus;
+    @Column(name="Resistant")
+    private int resistant;
+    @Column(name="Spell Shield")
+    private int spellShield;
+    @Column(name="Iron Clad")
+    private int ironClad;
+
+    //The Thief:
+    @Column(name="Siphoner")
+    private int siphoner;
+    @Column(name="Sprinter")
+    private int sprinter;
+    @Column(name="Bashing Focus")
+    private int bashingFocus;
+    @Column(name="Warlord")
+    private int warlord;
+    @Column(name="Healthy")
+    private int healthy;
+    @Column(name="Mooncalf")
+    private int mooncalf;
+    @Column(name="Arcanist")
+    private int arcanist;
+    @Column(name="Tenacity")
+    private int tenacity;
+    @Column(name="Tumbling")
+    private int tumbling;
+    @Column(name="Befoul")
+    private int befoul;
+    @Column(name="Shadow Ward")
+    private int shadowWard;
+    @Column(name="Shade")
+    private int shade;
+
+    //The Mage:
+    @Column(name="Precise Strikes")
+    private int preciseStrikes;
+    @Column(name="Piercing")
+    private int piercing;
+    @Column(name="Thaumaturge")
+    private int thaumaturge;
+    @Column(name="Mighty")
+    private int mighty;
+    @Column(name="Elemental Expert")
+    private int elementalExpert;
+    @Column(name="Blessed")
+    private int blessed;
+    @Column(name="Elfborn")
+    private int elfborn;
+    @Column(name="Spell Erosion")
+    private int spellErosion;
+    @Column(name="Shattering Blows")
+    private int shatteringBlows;
+    @Column(name="Master At Arms")
+    private int masterAtArms;
+    @Column(name="Physical Weapons Expert")
+    private int physicalWeaponsExpert;
+    @Column(name="Staff Expert")
+    private int staffExpert;
+
+    //-------------------------------------Constructor-------------------------------------
+    public Esochar(String name, Classes charClass) {
+        this.name = name;
+        this.charClass = charClass;
+    }
+
+    //---------------------------------------Getters---------------------------------------
     public String getName() {
         return name;
     }
 
-    //---------------------------------------Getters---------------------------------------
     public int getHp() {
         return hp;
     }
@@ -210,11 +295,11 @@ public class Esochar {
         return ultimate2;
     }
 
-    //---------------------------------------Setters---------------------------------------
-
-    public void setId(int id) {
-        this.id = id;
+    public Classes getCharClass() {
+        return charClass;
     }
+
+    //---------------------------------------Setters---------------------------------------
 
     public void setName(String name) {
         this.name = name;
@@ -322,10 +407,6 @@ public class Esochar {
 
     public void setUltimate2(int ultimate2) {
         this.ultimate2 = ultimate2;
-    }
-
-    public Classes getCharClass() {
-        return charClass;
     }
 
     public void setCharClass(Classes charClass) {
