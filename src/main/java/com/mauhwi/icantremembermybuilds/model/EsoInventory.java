@@ -6,9 +6,6 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public class EsoInventory {
-    @Id
-    @Column(name = "id")
-    protected long id;
 
     @Column(name = "Name")
     protected String name;

@@ -1,11 +1,14 @@
 package com.mauhwi.icantremembermybuilds;
 
-import com.mauhwi.icantremembermybuilds.model.Classes;
-import com.mauhwi.icantremembermybuilds.model.Esochar;
+import com.mauhwi.icantremembermybuilds.model.Esoarmor;
+import com.mauhwi.icantremembermybuilds.repo.ArmorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class Main {
     public static void main(String[] args) {
-        Esochar firstchar = new Esochar("Ash Maire", Classes.Nightblade);
-        System.out.println(firstchar.getCharClass() + " " + firstchar.getCharClass().getImagePath());
+        SpringApplication.run(Main.class, args);
     }
 }

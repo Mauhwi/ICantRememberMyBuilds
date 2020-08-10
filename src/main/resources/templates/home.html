@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+    .jumbotron-fluid {
+        display: flex;
+        align-items: center;
+        background-color: #101213;
+        margin-bottom: 0;
+        height: 100px;
+
+    }
+    h2 {
+        color: #F8C471;
+        padding-left: 20px;
+    }
+
+    .card-deck {
+        padding-top: 12px;
+        background-color: #2d2d2e;
+    }
+
+    .bottom {
+        padding-top: 8px;
+        background-color: #2d2d2e;
+    }
+
+    .bottom p {
+        color: #F8C471;
+    }
+
+    .card {
+        background-color: #101213;
+    }
+
+    .card-text {
+        color: #F8C471;
+    }
+
+    .card-title {
+        color: #F8C471;
+    }
+
+    .btn {
+        color: #F8C471;
+        border-color: #F8C471;
+    }
+
+    hr {
+        margin: 0;
+        background-color: #F8C471;
+    }
+
+
+    .modal-footer {
+        background-color: #101213;
+    }
+
+    .modal-body {
+        background-color: #101213;
+    }
+
+    label {
+        color: #F8C471;
+    }
+
+    .modal-header {
+        color: #101213;
+        background-color: #F8C471;
+    }
+
+    input[type="text"], textarea {
+    color: #F8C471;
+        background-color : #2d2d2e;
+    }
+
+    input[type="url"], textarea {
+        color: #F8C471;
+        background-color : #2d2d2e;
+    }
+
+    input[type=text]:focus {
+        background-color: #2d2d2e;
+        color: #F8C471;
+        box-shadow: 0 0 5px #F8C471;
+    }
+
+    input[type=url]:focus {
+        box-shadow: 0 0 5px #F8C471;
+        background-color: #2d2d2e;
+        color: #F8C471;
+    }
+
+    select option {
+        background: #2d2d2e;
+        color: #F8C471;
+    }
+
+    select {
+        background-color: #2d2d2e !important;
+        color: #F8C471 !important;
+    }
+
+    select:focus {
+        box-shadow: 0 0 5px #F8C471 !important;
+        background-color: #2d2d2e !important;
+        color: #F8C471 !important;
+    }
+
+    .modal-footer button {
+        background-color: #F8C471;
+        color: #101213;
+    }
+
+    ::placeholder {
+        color: #F8C471 !important;
+    }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="jumbotron jumbotron-fluid">
+    <h2>ESO builds</h2>
+</div>
+
+<!-- Card deck -->
+<div class="card-deck">
+
+    <!-- Card -->
+    <div class="col-md-4">
+        <div class="card mb-4 text-white">
+            <img class="card-img-top" src="https://i.imgur.com/dZqQh5M.png" alt="Card image cap" data-toggle="modal" data-target="#myModal">
+            <div class="card-body">
+                <br>
+                <br>
+                <h5 class="card-title">Add Character</h5>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card -->
+    <div th:each="character : ${esochar}" class="col-md-4">
+        <div class="card mb-4 text-white">
+            <img class="card-img-top" th:src="${character.imagePath}" alt="Card image cap">
+            <div class="card-body">
+                <h5 th:text="${character.name}" class="card-title"/>
+                <p th:text="${character.charClass}" class="card-text"/>
+                <a href="http://www.jquery2dotnet.com/" class="btn btn-outline-light btn-sm">View</a>
+                <a href="http://www.jquery2dotnet.com/" class="btn btn-outline-light btn-sm">Edit</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Card deck -->
+<hr>
+<!--Bottom Footer-->
+<div class="bottom section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                    <p>© 2020 Mauhwi </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Modal-->
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content border-0">
+            <div class="modal-header border-0">
+                <h4 class="modal-title">Add character</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="characterName">Character name</label>
+                        <input type="text" class="form-control border-0" id="characterName" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="characterClass">Character class</label>
+                    <select id="characterClass" class="browser-default custom-select border-0">
+                        <option th:each="classes : ${classes}"
+                                th:value="${classes}"
+                                th:text="${classes}">
+                        </option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="characterImage">Image URL</label>
+                        <input type="url" class="form-control border-0" id="characterImage" placeholder="URL">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-default">Add</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

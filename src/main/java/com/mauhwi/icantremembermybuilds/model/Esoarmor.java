@@ -1,12 +1,15 @@
 package com.mauhwi.icantremembermybuilds.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "ESO Armor")
+@Table(name = "Armor")
 public class Esoarmor extends EsoInventory {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "Armor_id")
+    protected Integer id;
 
     @Column(name = "Slot")
     private String slot;
@@ -19,9 +22,9 @@ public class Esoarmor extends EsoInventory {
         this.slot = slot;
     }
 
-    public Esoarmor(String slot, String name, String source) {
-        this.slot = slot;
+    public Esoarmor(String name, String slot, String source) {
         this.name = name;
+        this.slot = slot;
         this.source = source;
     }
 }

@@ -1,415 +1,243 @@
 package com.mauhwi.icantremembermybuilds.model;
 
+import com.sun.xml.bind.v2.TODO;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ESO character")
+@Table(name = "_Character")
 public class Esochar {
     @Id
-    @Column(name="Id")
+    @Column(name = "Char_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
-    @Column(name="Name")
+    @Column(name = "Image_path")
+    private String imagePath;
+
+    @Column(name = "Char_name")
     private String name;
 
-    @Column(name = "Class")
+    @Column(name = "Char_class")
     @Enumerated(EnumType.STRING)
     private Classes charClass;
 
     //----------------------------------------Stats----------------------------------------
-    @Column(name="HP")
+    @Column(name = "HP")
     private int hp;
 
-    @Column(name="MP")
+    @Column(name = "MP")
     private int mp;
 
-    @Column(name="SP")
+    @Column(name = "SP")
     private int sp;
 
     //----------------------------------------Armor----------------------------------------
-    @Column(name="Head")
-    private int headSlot;
+    @OneToOne
+    @JoinColumn(name = "_Head", referencedColumnName = "Armor_id")
+    private Esoarmor headSlot;
 
-    @Column(name="Shoulders")
-    private int shoulderSlot;
+    @OneToOne
+    @JoinColumn(name = "_Shoulders", referencedColumnName = "Armor_id ")
+    private Esoarmor shoulderSlot;
 
-    @Column(name="Body")
-    private int bodySlot;
+    @OneToOne
+    @JoinColumn(name = "_Body", referencedColumnName = "Armor_id")
+    private Esoarmor bodySlot;
 
-    @Column(name = "Waist")
-    private int waistSlot;
+    @OneToOne
+    @JoinColumn(name = "_Waist", referencedColumnName = "Armor_id")
+    private Esoarmor waistSlot;
 
-    @Column(name="Hands")
-    private int handSlot;
+    @OneToOne
+    @JoinColumn(name = "_Hands", referencedColumnName = "Armor_id")
+    private Esoarmor handSlot;
 
-    @Column(name="Legs")
-    private int legSlot;
+    @OneToOne
+    @JoinColumn(name = "_Legs", referencedColumnName = "Armor_id")
+    private Esoarmor legSlot;
 
     //----------------------------------------Weapons---------------------------------------
+    @OneToOne
+    @JoinColumn(name = "Weapon1", referencedColumnName = "Weapon_id")
+    private Esoweapon weapon1;
 
-    @Column(name="Weapon I")
-    private int weapon1;
-
-    @Column(name="Weapon II")
-    private int weapon2;
+    @OneToOne
+    @JoinColumn(name = "Weapon2", referencedColumnName = "Weapon_id")
+    private Esoweapon weapon2;
 
     //----------------------------------------Jewelry---------------------------------------
-    @Column(name = "Left ring")
-    private int leftRing;
+    @OneToOne
+    @JoinColumn(name = "Left_Ring", referencedColumnName = "Armor_id")
+    private Esoarmor leftRing;
 
-    @Column(name = "Right ring")
-    private int rightRing;
+    @OneToOne
+    @JoinColumn(name = "Right_Ring", referencedColumnName = "Armor_id")
+    private Esoarmor rightRing;
 
-    @Column(name = "Neck")
-    private int neck;
+    @OneToOne
+    @JoinColumn(name = "_Neck", referencedColumnName = "Armor_id")
+    private Esoarmor neck;
 
     //---------------------------------------Skills----------------------------------------
-    @Column(name="Skill 1")
-    private int skill1;
 
-    @Column(name="Skill 2")
-    private int skill2;
-
-    @Column(name="Skill 3")
-    private int skill3;
-
-    @Column(name="Skill 4")
-    private int skill4;
-
-    @Column(name="Skill 5")
-    private int skill5;
-
-    @Column(name="Ultimate 1")
-    private int ultimate1;
-
-    @Column(name="Skill 6")
-    private int skill6;
-
-    @Column(name="Skill 7")
-    private int skill7;
-
-    @Column(name="Skill 8")
-    private int skill8;
-
-    @Column(name="Skill 9")
-    private int skill9;
-
-    @Column(name="Skill 10")
-    private int skill10;
-
-    @Column(name="Ultimate 2")
-    private int ultimate2;
+    //TODO
 
     //-----------------------------------------CP-----------------------------------------
-    // Warrior:
-    @Column(name="Quick Recovery")
-    private int quickRecovery;
-    @Column(name="Heavy Armor Focus")
-    private int heavyArmorFocus;
-    @Column(name="Bastion")
-    private int bastion;
-    @Column(name="Expert Defender")
-    private int expertDefender;
-    @Column(name="Thick Skinned")
-    private int thickSkinned;
-    @Column(name="Elemental Defender")
-    private int elementalDefender;
-    @Column(name="Light Armor Focus")
-    private int lightArmorFocus;
-    @Column(name="Hardy")
-    private int hardy;
-    @Column(name="Medium Armor Focus")
-    private int mediumArmorFocus;
-    @Column(name="Resistant")
-    private int resistant;
-    @Column(name="Spell Shield")
-    private int spellShield;
-    @Column(name="Iron Clad")
-    private int ironClad;
-
-    //The Thief:
-    @Column(name="Siphoner")
-    private int siphoner;
-    @Column(name="Sprinter")
-    private int sprinter;
-    @Column(name="Bashing Focus")
-    private int bashingFocus;
-    @Column(name="Warlord")
-    private int warlord;
-    @Column(name="Healthy")
-    private int healthy;
-    @Column(name="Mooncalf")
-    private int mooncalf;
-    @Column(name="Arcanist")
-    private int arcanist;
-    @Column(name="Tenacity")
-    private int tenacity;
-    @Column(name="Tumbling")
-    private int tumbling;
-    @Column(name="Befoul")
-    private int befoul;
-    @Column(name="Shadow Ward")
-    private int shadowWard;
-    @Column(name="Shade")
-    private int shade;
-
-    //The Mage:
-    @Column(name="Precise Strikes")
-    private int preciseStrikes;
-    @Column(name="Piercing")
-    private int piercing;
-    @Column(name="Thaumaturge")
-    private int thaumaturge;
-    @Column(name="Mighty")
-    private int mighty;
-    @Column(name="Elemental Expert")
-    private int elementalExpert;
-    @Column(name="Blessed")
-    private int blessed;
-    @Column(name="Elfborn")
-    private int elfborn;
-    @Column(name="Spell Erosion")
-    private int spellErosion;
-    @Column(name="Shattering Blows")
-    private int shatteringBlows;
-    @Column(name="Master At Arms")
-    private int masterAtArms;
-    @Column(name="Physical Weapons Expert")
-    private int physicalWeaponsExpert;
-    @Column(name="Staff Expert")
-    private int staffExpert;
+    //TODO
 
     //-------------------------------------Constructor-------------------------------------
-    public Esochar(String name, Classes charClass) {
+    public Esochar(String name, Classes charClass, String imagePath) {
         this.name = name;
         this.charClass = charClass;
+        this.imagePath = imagePath;
     }
 
-    //---------------------------------------Getters---------------------------------------
+    public Esochar() {
+    }
+    //-------------------------getter setters--------------------------------
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
-    public int getHp() {
-        return hp;
-    }
-
-    public int getMp() {
-        return mp;
-    }
-
-    public int getSp() {
-        return sp;
-    }
-
-    public int getHeadSlot() {
-        return headSlot;
-    }
-
-    public int getShoulderSlot() {
-        return shoulderSlot;
-    }
-
-    public int getBodySlot() {
-        return bodySlot;
-    }
-
-    public int getWaistSlot() {
-        return waistSlot;
-    }
-
-    public int getHandSlot() {
-        return handSlot;
-    }
-
-    public int getLegSlot() {
-        return legSlot;
-    }
-
-    public int getWeapon1() {
-        return weapon1;
-    }
-
-    public int getWeapon2() {
-        return weapon2;
-    }
-
-    public int getLeftRing() {
-        return leftRing;
-    }
-
-    public int getRightRing() {
-        return rightRing;
-    }
-
-    public int getNeck() {
-        return neck;
-    }
-
-    public int getSkill1() {
-        return skill1;
-    }
-
-    public int getSkill2() {
-        return skill2;
-    }
-
-    public int getSkill3() {
-        return skill3;
-    }
-
-    public int getSkill4() {
-        return skill4;
-    }
-
-    public int getSkill5() {
-        return skill5;
-    }
-
-    public int getUltimate1() {
-        return ultimate1;
-    }
-
-    public int getSkill6() {
-        return skill6;
-    }
-
-    public int getSkill7() {
-        return skill7;
-    }
-
-    public int getSkill8() {
-        return skill8;
-    }
-
-    public int getSkill9() {
-        return skill9;
-    }
-
-    public int getSkill10() {
-        return skill10;
-    }
-
-    public int getUltimate2() {
-        return ultimate2;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Classes getCharClass() {
         return charClass;
     }
 
-    //---------------------------------------Setters---------------------------------------
+    public void setCharClass(Classes charClass) {
+        this.charClass = charClass;
+    }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getHp() {
+        return hp;
     }
 
     public void setHp(int hp) {
         this.hp = hp;
     }
 
+    public int getMp() {
+        return mp;
+    }
+
     public void setMp(int mp) {
         this.mp = mp;
+    }
+
+    public int getSp() {
+        return sp;
     }
 
     public void setSp(int sp) {
         this.sp = sp;
     }
 
-    public void setHeadSlot(int headSlot) {
+    public Esoarmor getHeadSlot() {
+        return headSlot;
+    }
+
+    public void setHeadSlot(Esoarmor headSlot) {
         this.headSlot = headSlot;
     }
 
-    public void setShoulderSlot(int shoulderSlot) {
+    public Esoarmor getShoulderSlot() {
+        return shoulderSlot;
+    }
+
+    public void setShoulderSlot(Esoarmor shoulderSlot) {
         this.shoulderSlot = shoulderSlot;
     }
 
-    public void setBodySlot(int bodySlot) {
+    public Esoarmor getBodySlot() {
+        return bodySlot;
+    }
+
+    public void setBodySlot(Esoarmor bodySlot) {
         this.bodySlot = bodySlot;
     }
 
-    public void setWaistSlot(int waistSlot) {
+    public Esoarmor getWaistSlot() {
+        return waistSlot;
+    }
+
+    public void setWaistSlot(Esoarmor waistSlot) {
         this.waistSlot = waistSlot;
     }
 
-    public void setHandSlot(int handSlot) {
+    public Esoarmor getHandSlot() {
+        return handSlot;
+    }
+
+    public void setHandSlot(Esoarmor handSlot) {
         this.handSlot = handSlot;
     }
 
-    public void setLegSlot(int legSlot) {
+    public Esoarmor getLegSlot() {
+        return legSlot;
+    }
+
+    public void setLegSlot(Esoarmor legSlot) {
         this.legSlot = legSlot;
     }
 
-    public void setLeftRing(int leftRing) {
-        this.leftRing = leftRing;
+    public Esoweapon getWeapon1() {
+        return weapon1;
     }
 
-    public void setRightRing(int rightRing) {
-        this.rightRing = rightRing;
-    }
-
-    public void setNeck(int neck) {
-        this.neck = neck;
-    }
-
-    public void setWeapon1(int weapon1) {
+    public void setWeapon1(Esoweapon weapon1) {
         this.weapon1 = weapon1;
     }
 
-    public void setWeapon2(int weapon2) {
+    public Esoweapon getWeapon2() {
+        return weapon2;
+    }
+
+    public void setWeapon2(Esoweapon weapon2) {
         this.weapon2 = weapon2;
     }
 
-    public void setSkill1(int skill1) {
-        this.skill1 = skill1;
+    public Esoarmor getLeftRing() {
+        return leftRing;
     }
 
-    public void setSkill2(int skill2) {
-        this.skill2 = skill2;
+    public void setLeftRing(Esoarmor leftRing) {
+        this.leftRing = leftRing;
     }
 
-    public void setSkill3(int skill3) {
-        this.skill3 = skill3;
+    public Esoarmor getRightRing() {
+        return rightRing;
     }
 
-    public void setSkill4(int skill4) {
-        this.skill4 = skill4;
+    public void setRightRing(Esoarmor rightRing) {
+        this.rightRing = rightRing;
     }
 
-    public void setSkill5(int skill5) {
-        this.skill5 = skill5;
+    public Esoarmor getNeck() {
+        return neck;
     }
 
-    public void setUltimate1(int ultimate1) {
-        this.ultimate1 = ultimate1;
+    public void setNeck(Esoarmor neck) {
+        this.neck = neck;
     }
 
-    public void setSkill6(int skill6) {
-        this.skill6 = skill6;
+    public String getImagePath() {
+        return imagePath;
     }
 
-    public void setSkill7(int skill7) {
-        this.skill7 = skill7;
-    }
-
-    public void setSkill8(int skill8) {
-        this.skill8 = skill8;
-    }
-
-    public void setSkill9(int skill9) {
-        this.skill9 = skill9;
-    }
-
-    public void setSkill10(int skill10) {
-        this.skill10 = skill10;
-    }
-
-    public void setUltimate2(int ultimate2) {
-        this.ultimate2 = ultimate2;
-    }
-
-    public void setCharClass(Classes charClass) {
-        this.charClass = charClass;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }
