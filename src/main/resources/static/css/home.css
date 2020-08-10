@@ -1,0 +1,113 @@
+.jumbotron-fluid {
+        display: flex;
+        align-items: center;
+        background-color: #101213;
+        margin-bottom: 0;
+        height: 100px;
+
+    }
+    h2 {
+        color: #F8C471;
+        padding-left: 20px;
+    }
+
+    .card-deck {
+        padding-top: 12px;
+        background-color: #2d2d2e;
+    }
+
+    .bottom {
+        padding-top: 8px;
+        background-color: #2d2d2e;
+    }
+
+    .bottom p {
+        color: #F8C471;
+    }
+
+    .card {
+        background-color: #101213;
+    }
+
+    .card-text {
+        color: #F8C471;
+    }
+
+    .card-title {
+        color: #F8C471;
+    }
+
+    .btn {
+        color: #F8C471;
+        border-color: #F8C471;
+    }
+
+    hr {
+        margin: 0;
+        background-color: #F8C471;
+    }
+
+
+    .modal-footer {
+        background-color: #101213;
+    }
+
+    .modal-body {
+        background-color: #101213;
+    }
+
+    label {
+        color: #F8C471;
+    }
+
+    .modal-header {
+        color: #101213;
+        background-color: #F8C471;
+    }
+
+    input[type="text"], textarea {
+    color: #F8C471;
+        background-color : #2d2d2e;
+    }
+
+    input[type="url"], textarea {
+        color: #F8C471;
+        background-color : #2d2d2e;
+    }
+
+    input[type=text]:focus {
+        background-color: #2d2d2e;
+        color: #F8C471;
+        box-shadow: 0 0 5px #F8C471;
+    }
+
+    input[type=url]:focus {
+        box-shadow: 0 0 5px #F8C471;
+        background-color: #2d2d2e;
+        color: #F8C471;
+    }
+
+    select option {
+        background: #2d2d2e;
+        color: #F8C471;
+    }
+
+    select {
+        background-color: #2d2d2e !important;
+        color: #F8C471 !important;
+    }
+
+    select:focus {
+        box-shadow: 0 0 5px #F8C471 !important;
+        background-color: #2d2d2e !important;
+        color: #F8C471 !important;
+    }
+
+    .modal-footer button {
+        background-color: #F8C471;
+        color: #101213;
+    }
+
+    ::placeholder {
+        color: #F8C471 !important;
+    }
