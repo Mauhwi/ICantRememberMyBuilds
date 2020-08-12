@@ -1,3 +1,71 @@
+.gear-list-item {
+background-color: #101213;
+color: #F8C471;
+}
+
+li {
+padding: 10px;
+border-bottom: 1px solid #F8C471;
+}
+
+.navbar {
+    background-color: #101213;
+}
+
+.nav-item {
+    color: #F8C471 !important;
+}
+
+.nav-item:hover {
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+
+.hp-item {
+background: linear-gradient(90deg, rgba(56,7,7,1) 0%, rgba(121,9,9,1) 50%, rgba(56,7,7,1) 100%);
+box-shadow: 0 0 1px #F8C471;
+border-style: solid;
+}
+
+.mp-item {
+background: linear-gradient(90deg, rgba(5,9,48,1) 0%, rgba(27,33,122,1) 50%, rgba(5,9,48,1) 100%);
+box-shadow: 0 0 1px #F8C471;
+border-style: solid;
+}
+
+.sp-item {
+background: linear-gradient(90deg, rgba(5,41,6,1) 0%, rgba(24,122,33,1) 50%, rgba(5,41,6,1) 100%);
+box-shadow: 0 0 1px #F8C471;
+border-style: solid;
+}
+
+.base-stats-item {
+  position: relative;
+  color: #F8C471;
+}
+
+.center {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+}
+
+
+.img-fluid {
+  filter: brightness(30%);
+}
+
+body {
+    background-color: #2d2d2e;
+}
+
+.row {
+    background-color: #2d2d2e;
+}
+
 .jumbotron-fluid {
         display: flex;
         align-items: center;

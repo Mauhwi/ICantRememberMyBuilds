@@ -57,6 +57,10 @@ public class Esochar {
     @JoinColumn(name = "_Legs", referencedColumnName = "Armor_id")
     private Esoarmor legSlot;
 
+    @OneToOne
+    @JoinColumn(name = "Boots", referencedColumnName = "Armor_id")
+    private Esoarmor bootsSlot;
+
     //----------------------------------------Weapons---------------------------------------
     @OneToOne
     @JoinColumn(name = "Weapon1", referencedColumnName = "Weapon_id")
@@ -231,6 +235,14 @@ public class Esochar {
 
     public void setNeck(Esoarmor neck) {
         this.neck = neck;
+    }
+
+    public Esoarmor getBootsSlot() {
+        return bootsSlot;
+    }
+
+    public void setBootsSlot(Esoarmor bootsSlot) {
+        this.bootsSlot = bootsSlot;
     }
 
     public String getImagePath() {

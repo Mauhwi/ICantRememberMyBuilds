@@ -9,9 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -48,6 +45,6 @@ public class CharactersController {
             Esochar newchar = new Esochar("Mistakes Happen", Classes.Nightblade, "Yeah");
             charRepository.save(newchar);
         }
-        return "/home";
+        return "redirect:/";
     }
 }
