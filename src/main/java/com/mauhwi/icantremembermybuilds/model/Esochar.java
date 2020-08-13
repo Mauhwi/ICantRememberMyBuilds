@@ -3,6 +3,8 @@ package com.mauhwi.icantremembermybuilds.model;
 import com.sun.xml.bind.v2.TODO;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "_Character")

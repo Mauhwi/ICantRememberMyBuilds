@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Controller
-public class CharactersController {
+public class HomeController {
     @Autowired
     CharRepository charRepository;
 

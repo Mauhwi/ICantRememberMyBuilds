@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="home.css"/>
+    <link rel="stylesheet" th:href="@{/css/home.css}"/>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -16,39 +17,38 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link">Home</a>
-            <a class="nav-item nav-link">DB items</a>
-            <a class="nav-item nav-link">Delete</a>
+            <h4 class="nav-item nav-link">Home</h4>
+            <h4 class="nav-item nav-link" data-toggle="modal" data-target="#myModal">Delete character</h4>
         </div>
     </div>
 </nav>
 <div class="row m-3">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 center-block text-center">
         <div class="base-stats-item">
             <img class="img-fluid rounded" src="https://i.imgur.com/wOTOqWM.png">
-            <div class="center">
-            <p class="name">Ash Maire</p>
-            <p class="class">Nightblade</p>
-                <p class="hp-item">0</p>
-                <p class="mp-item">0</p>
-                <p class="sp-item">64</p>
+            <div class="center" th:each="character : ${esochar}">
+                <p class="char_name" th:text="${character.name}"/>
+                <p class="char_class" th:text="${character.charClass}"/>
+                <p class="hp-item" th:text="${character.hp}"/>
+                <p class="mp-item" th:text="${character.mp}"/>
+                <p class="sp-item" th:text="${character.sp}"/>
             </div>
         </div>
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 center-block text-center">
         <div class="gear-list-item p-3">
-        <ul style="list-style-type:none;">
-            <li>Briarthorn Head</li>
-            <li>Briarthorn Shoulders</li>
-            <li>Briarthorn Body</li>
-            <li>Briarthorn Waist</li>
-            <li>Briarthorn Hands</li>
-            <li>Briarthorn Legs</li>
-            <li>Briarthorn Boots</li>
-            <li>Briarthorn Ring</li>
-            <li>Briarthorn Ring</li>
-            <li>Briarthorn Neck</li>
-        </ul>
+            <ul style="list-style-type:none;" th:each="character : ${esochar}">
+                <li th:text="${character.headSlot}"/>
+                <li th:text="${character.shoulderSlot}"/>
+                <li th:text="${character.bodySlot}"/>
+                <li th:text="${character.waistSlot}"/>
+                <li th:text="${character.handSlot}"/>
+                <li th:text="${character.legSlot}"/>
+                <li th:text="${character.bootsSlot}"/>
+                <li th:text="${character.leftRing}"/>
+                <li th:text="${character.rightRing}"/>
+                <li th:text="${character.neck}"/>
+            </ul>
         </div>
     </div>
     <div class="col-12 col-md-6 p-5">.col-6 .col-md-4</div>
@@ -65,5 +65,29 @@
         </div>
     </div>
 </div>
+
+<!------------------------------------Modal------------------------------------------>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content border-0">
+            <div class="modal-header border-0">
+                <h5 class="modal-title">Delete character</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body" th:each="character : ${esochar}">
+                <form th:action="'/character/' + ${character.id} + '/delete'" method="post">
+                    <div class="form-group">
+                        <p>Are you sure?</p>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="submit" class="btn btn-default">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

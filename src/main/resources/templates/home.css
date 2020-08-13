@@ -1,3 +1,17 @@
+.gear_select {
+    background-color: #101213 !important;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.gear_select:focus {
+        border: 0 !important;
+        background-color: #101213 !important;
+        color: #F8C471 !important;
+}
+
 .gear-list-item {
 background-color: #101213;
 color: #F8C471;
@@ -40,7 +54,7 @@ border-style: solid;
 }
 
 .base-stats-item {
-  position: relative;
+  position: absolute;
   color: #F8C471;
 }
 
@@ -66,14 +80,6 @@ body {
     background-color: #2d2d2e;
 }
 
-.jumbotron-fluid {
-        display: flex;
-        align-items: center;
-        background-color: #101213;
-        margin-bottom: 0;
-        height: 100px;
-
-    }
     h2 {
         color: #F8C471;
         padding-left: 20px;

@@ -12,9 +12,18 @@
 </head>
 <body>
 
-<div class="jumbotron jumbotron-fluid">
-    <h2>ESO builds</h2>
-</div>
+<nav class="navbar navbar-expand-sm">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <h4 class="nav-item nav-link" href="#">Eso builds</h4>
+            <h4 class="nav-item nav-link nav-link disabled" >Home</h4>
+            <h4 class="nav-item nav-link" data-toggle="modal" data-target="#myModal">Add items</h4>
+        </div>
+    </div>
+</nav>
 
 <!-- Card deck -->
 <div class="card-deck">
@@ -37,9 +46,9 @@
         <div class="card mb-4 text-white">
             <img class="card-img-top" th:src="${character.imagePath}" alt="Card image cap">
             <div class="card-body">
-                <h5 th:text="${character.name}" class="card-title"/>
+                <h5 th:text="${character.name}" class="card-title "/>
                 <p th:text="${character.charClass}" class="card-text"/>
-                <a href="http://www.jquery2dotnet.com/" class="btn btn-outline-light btn-sm">View</a>
+                <a th:href=" '/character/' + ${character.id}" class="btn btn-outline-light btn-sm">View</a>
                 <a href="http://www.jquery2dotnet.com/" class="btn btn-outline-light btn-sm">Edit</a>
             </div>
         </div>
