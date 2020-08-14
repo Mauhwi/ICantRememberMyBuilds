@@ -22,4 +22,13 @@ public class Esoweapon extends EsoInventory {
         this.type = type;
     }
 
+
+    public Esoweapon() {}
+
+    public Esoweapon(String name, String type, String source) {
+        this.name = name;
+        this.type = type;
+        this.source = source;
+    }
+
 }

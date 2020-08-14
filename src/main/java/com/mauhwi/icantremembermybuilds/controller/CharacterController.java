@@ -1,18 +1,20 @@
 package com.mauhwi.icantremembermybuilds.controller;
 
+import com.mauhwi.icantremembermybuilds.model.Esoarmor;
 import com.mauhwi.icantremembermybuilds.model.Esochar;
 import com.mauhwi.icantremembermybuilds.repo.ArmorRepository;
 import com.mauhwi.icantremembermybuilds.repo.CharRepository;
+import com.mauhwi.icantremembermybuilds.repo.WeaponsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 @Controller
@@ -21,6 +23,12 @@ public class CharacterController {
 
     @Autowired
     CharRepository charRepository;
+
+    @Autowired
+    ArmorRepository armorRepository;
+
+    @Autowired
+    WeaponsRepository weaponsRepository;
 
     @GetMapping("/{id}")
     public String charDetails(@PathVariable(value = "id") Integer id, Model model) {
