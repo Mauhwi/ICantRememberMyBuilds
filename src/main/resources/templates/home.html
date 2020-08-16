@@ -55,14 +55,14 @@
     </div>
 
 </div>
-<!-- Card deck -->
+
 <hr>
 <!--Bottom Footer-->
 <div class="bottom section-padding">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                    <p>© 2020 Mauhwi </p>
+                <p>© 2020 Mauhwi </p>
             </div>
         </div>
     </div>
@@ -87,33 +87,34 @@
                     </div>
                     <div class="form-group">
                         <label for="characterClass">Character class</label>
-                    <select id="characterClass" class="browser-default custom-select border-0" name="charClass">
-                        <option th:each="classes : ${classes}"
-                                th:value="${classes}"
-                                th:text="${classes}">
-                        </option>
-                    </select>
+                        <select id="characterClass" class="browser-default custom-select border-0" name="charClass">
+                            <option th:each="classes : ${classes}"
+                                    th:value="${classes}"
+                                    th:text="${classes}">
+                            </option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="characterImage">Image URL</label>
                         <input type="url" class="form-control border-0" id="characterImage" placeholder="URL" name="imagePath">
                     </div>
-            <div class="modal-footer border-0">
-                <button type="submit" class="btn btn-default">Add</button>
+                    <div class="modal-footer border-0">
+                        <button type="submit" class="btn btn-default">Add</button>
+                    </div>
+                </form>
             </div>
-            </form>
-        </div>
         </div>
 
     </div>
 </div>
 
+<!-----------------------------Add Items Modal----------------------------->
 <div class="modal fade" id="addItemsModal" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content border-0">
             <div class="modal-header border-0">
-                <h5 class="modal-title">Delete character</h5>
+                <h5 class="modal-title">Add items</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -126,6 +127,64 @@
                         <button type="submit" class="btn btn-default">Add items</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal TODO-->
+<div class="modal fade" id="addItemsModal1" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content border-0">
+            <div class="modal-header border-0">
+                <h4 class="modal-title">Add items</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body border-0">
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist" id="tablist">
+                        <li role="presentation" class="active"><a href="#setTab" aria-controls="set" role="tab" data-toggle="tab">Set</a>
+                        </li>
+                        <li role="presentation"><a href="#monsterTab" aria-controls="monster" role="tab" data-toggle="tab">Monster</a>
+                        </li>
+                        <li role="presentation"><a href="#otherTab" aria-controls="3piece" role="tab" data-toggle="tab">3-piece</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="setTab">
+                            <form action="/additems" method="post">
+                                <div class="form-group">
+                                    <br>
+                                    <input type="text" class="form-control border-0" id="setName" placeholder="Name" name="setName"><br>
+                                    <input type="text" class="form-control border-0" id="source" placeholder="Source" name="source"><br>
+                                    <button type="submit" class="btn btn-default" style="float: right;">Add items</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="monsterTab">
+                            <form action="/addMonsterSet" method="post">
+                                <div class="form-group">
+                                    <br>
+                                    <input type="text" class="form-control border-0" id="monsterSetName" placeholder="Monster Name" name="setName"><br>
+                                    <input type="text" class="form-control border-0" id="monsterSetSource" placeholder="Monster Source" name="source"><br>
+                                    <button type="submit" class="btn btn-default" style="float: right;">Add items</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="otherTab">
+                            <form action="/add3Piece" method="post">
+                                <div class="form-group">
+                                    <br>
+                                    <input type="text" class="form-control border-0" id="3pieceSetName" placeholder="3-piece Name" name="setName"><br>
+                                    <input type="text" class="form-control border-0" id="3pieceSetSource" placeholder="3-piece Source" name="source"><br>
+                                    <button type="submit" class="btn btn-default" style="float: right;">Add items</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

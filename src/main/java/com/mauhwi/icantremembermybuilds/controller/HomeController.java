@@ -66,8 +66,8 @@ public class HomeController {
         Esoarmor handSlot = new Esoarmor(setName + " Hands", "handSlot", source);
         Esoarmor legSlot = new Esoarmor(setName + " Legs", "legSlot", source);
         Esoarmor bootsSlot = new Esoarmor(setName + " Boots", "bootsSlot", source);
-        Esoarmor ring = new Esoarmor(setName + " Ring", "ring", source);
-        Esoarmor neck = new Esoarmor(setName + " Necklace", "neck", source);
+        Esoarmor ring = new Esoarmor(setName + " Ring", "ringSlot", source);
+        Esoarmor neck = new Esoarmor(setName + " Necklace", "neckSlot", source);
 
         List<Esoarmor> esoarmorList = Stream.of(headSlot, shoulderSlot, bodySlot, waistSlot,
                 handSlot, legSlot, bootsSlot, ring, neck)

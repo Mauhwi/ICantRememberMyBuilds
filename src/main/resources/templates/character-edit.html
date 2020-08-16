@@ -26,7 +26,7 @@
     <div class="col-12 col-md-6 center-block text-center">
         <div class="base-stats-item">
             <img class="img-fluid rounded" th:src="${character.imagePath}" alt="Card image cap">
-            <div class="center" >
+            <div class="center">
                 <p class="char_name" th:text="${character.name}"/>
                 <p class="char_class" th:text="${character.charClass}"/>
                 <p class="hp-item" th:text="${character.hp}"/>
@@ -37,17 +37,77 @@
     </div>
     <div class="col-12 col-md-6 center-block text-center">
         <div class="gear-list-item p-3">
-            <ul style="list-style-type:none;" th:each="character : ${esochar}">
-                <li th:text="${character.headSlot}"/>
-                <li th:text="${character.shoulderSlot}"/>
-                <li th:text="${character.bodySlot}"/>
-                <li th:text="${character.waistSlot}"/>
-                <li th:text="${character.handSlot}"/>
-                <li th:text="${character.legSlot}"/>
-                <li th:text="${character.bootsSlot}"/>
-                <li th:text="${character.leftRing}"/>
-                <li th:text="${character.rightRing}"/>
-                <li th:text="${character.neck}"/>
+            <ul style="list-style-type:none;" th:each="character : ${esochar}" class="charGear">
+                <li>
+                    <select class="gear_select">
+                        <option th:each="headSlots : ${headSlots}"
+                                th:value="${headSlots}"
+                                th:text="${headSlots.name}"/>
+                    </select>
+                </li>
+                <li>
+                    <select class="gear_select">
+                        <option th:each="shoulderSlots : ${shoulderSlots}"
+                                th:value="${shoulderSlots}"
+                                th:text="${shoulderSlots.name}"/>
+                    </select>
+                </li>
+                <li>
+                    <select class="gear_select">
+                        <option th:each="bodySlots : ${bodySlots}"
+                                th:value="${bodySlots}"
+                                th:text="${bodySlots.name}"/>
+                    </select>
+                </li>
+                <li>
+                    <select class="gear_select">
+                        <option th:each="handSlots : ${handSlots}"
+                                th:value="${handSlots}"
+                                th:text="${handSlots.name}"/>
+                    </select>
+                </li>
+                <li>
+                    <select class="gear_select">
+                        <option th:each="bootsSlots : ${bootsSlots}"
+                                th:value="${bootsSlots}"
+                                th:text="${bootsSlots.name}"/>
+                    </select>
+                </li>
+                <li>
+                    <select class="gear_select">
+                        <option th:each="legSlots : ${legSlots}"
+                                th:value="${legSlots}"
+                                th:text="${legSlots.name}"/>
+                    </select>
+                </li>
+                <li>
+                    <select class="gear_select">
+                        <option th:each="neckSlots : ${neckSlots}"
+                                th:value="${neckSlots}"
+                                th:text="${neckSlots.name}"/>
+                    </select>
+                </li>
+                <li>
+                    <select class="gear_select">
+                        <option th:each="ringSlots : ${ringSlots}"
+                                th:value="${ringSlots}"
+                                th:text="${ringSlots.name}"/>
+                    </select>
+                </li>
+                <li>
+                    <select class="gear_select">
+                        <option th:each="ringSlots : ${ringSlots}"
+                                th:value="${ringSlots}"
+                                th:text="${ringSlots.name}"/>
+                    </select>
+                </li>
+                <li>
+                    <select class="gear_select">
+                        <option th:each="waistSlots : ${waistSlots}"
+                                th:value="${waistSlots}"
+                                th:text="${waistSlots.name}"/>
+                    </select>
+                </li>
             </ul>
         </div>
     </div>

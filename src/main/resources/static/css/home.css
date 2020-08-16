@@ -1,9 +1,14 @@
 .gear_select {
     background-color: #101213 !important;
     border: 0;
+    margin: 2px;
     -webkit-appearance: none;
     -moz-appearance: none;
     cursor: pointer;
+}
+
+option {
+    margin: 2px;
 }
 
 .gear_select:focus {

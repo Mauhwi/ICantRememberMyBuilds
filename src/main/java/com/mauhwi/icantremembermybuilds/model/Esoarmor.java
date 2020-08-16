@@ -27,4 +27,6 @@ public class Esoarmor extends EsoInventory {
         this.slot = slot;
         this.source = source;
     }
+
+    public Esoarmor() {}
 }

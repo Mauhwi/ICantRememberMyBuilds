@@ -1,10 +1,6 @@
 package com.mauhwi.icantremembermybuilds.model;
 
-import com.sun.xml.bind.v2.TODO;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "_Character")
@@ -83,7 +79,7 @@ public class Esochar {
 
     @OneToOne
     @JoinColumn(name = "_Neck", referencedColumnName = "Armor_id")
-    private Esoarmor neck;
+    private Esoarmor neckSlot;
 
     //---------------------------------------Skills----------------------------------------
 
@@ -231,12 +227,12 @@ public class Esochar {
         this.rightRing = rightRing;
     }
 
-    public Esoarmor getNeck() {
-        return neck;
+    public Esoarmor getNeckSlot() {
+        return neckSlot;
     }
 
-    public void setNeck(Esoarmor neck) {
-        this.neck = neck;
+    public void setNeckSlot(Esoarmor neckSlot) {
+        this.neckSlot = neckSlot;
     }
 
     public Esoarmor getBootsSlot() {

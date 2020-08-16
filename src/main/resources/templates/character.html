@@ -37,17 +37,17 @@
     </div>
     <div class="col-12 col-md-6 center-block text-center">
         <div class="gear-list-item p-3">
-            <ul style="list-style-type:none;" th:each="character : ${esochar}">
-                <li th:text="${character.headSlot}"/>
-                <li th:text="${character.shoulderSlot}"/>
-                <li th:text="${character.bodySlot}"/>
-                <li th:text="${character.waistSlot}"/>
-                <li th:text="${character.handSlot}"/>
-                <li th:text="${character.legSlot}"/>
-                <li th:text="${character.bootsSlot}"/>
-                <li th:text="${character.leftRing}"/>
-                <li th:text="${character.rightRing}"/>
-                <li th:text="${character.neck}"/>
+            <ul style="list-style-type:none;" th:each="character : ${esochar}" class="charGear">
+                <li th:text="${character.headSlot?.name}"/>
+                <li th:text="${character.shoulderSlot?.name}"/>
+                <li th:text="${character.bodySlot?.name}"/>
+                <li th:text="${character.waistSlot?.name}"/>
+                <li th:text="${character.handSlot?.name}"/>
+                <li th:text="${character.legSlot?.name}"/>
+                <li th:text="${character.bootsSlot?.name}"/>
+                <li th:text="${character.leftRing?.name}"/>
+                <li th:text="${character.rightRing?.name}"/>
+                <li th:text="${character.neckSlot?.name}"/>
             </ul>
         </div>
     </div>
