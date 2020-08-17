@@ -49,7 +49,7 @@
                 <h5 th:text="${character.name}" class="card-title "/>
                 <p th:text="${character.charClass}" class="card-text"/>
                 <a th:href=" '/character/' + ${character.id}" class="btn btn-outline-light btn-sm">View</a>
-                <a href="http://www.jquery2dotnet.com/" class="btn btn-outline-light btn-sm">Edit</a>
+                <a th:href=" '/character/' + ${character.id} + '/edit'" class="btn btn-outline-light btn-sm">Edit</a>
             </div>
         </div>
     </div>
