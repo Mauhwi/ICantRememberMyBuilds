@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="home.css"/>
     <link rel="stylesheet" th:href="@{/css/home.css}"/>
+    <script type="text/javascript" th:src="@{/js/home.js}" />
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
-<body>
+<body th:each="character : ${esochar}">
 <nav class="navbar navbar-expand-sm">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -22,16 +22,20 @@
         </div>
     </div>
 </nav>
-<div class="row m-3" th:each="character : ${esochar}">
+<form th:action="'/character/' + ${character.id} + '/edit'" method="post">
+<div class="row m-3">
     <div class="col-12 col-md-6 center-block text-center">
         <div class="base-stats-item">
             <img class="img-fluid rounded" th:src="${character.imagePath}" alt="Card image cap">
             <div class="center">
                 <p class="char_name" th:text="${character.name}"/>
                 <p class="char_class" th:text="${character.charClass}"/>
-                <input class="hp-item" type="number" id="hp" name="hp" min="0" max="64" th:value="${character.hp}"><br><br>
-                <input class="mp-item" type="number" id="mp" name="mp" min="0" max="64" th:value="${character.mp}"><br><br>
-                <input class="sp-item" type="number" id="sp" name="sp" min="0" max="64" th:value="${character.sp}"><br><br>
+                <span id="hpTooltip"></span>
+                <input class="hp-item" type="number" max="64" id="hp" onfocusout="checkhp()" onkeyup="DelayTooltip()" th:value="${character.hp}"/><br><br>
+                <span id="mpTooltip"></span>
+                <input class="mp-item" type="number" id="mp" max="64" onfocusout="checkmp()" onkeyup="DelayTooltip()" th:value="${character.mp}"/><br><br>
+                <span id="spTooltip"></span>
+                <input class="sp-item" type="number" id="sp" max="64" onfocusout="checksp()" onkeyup="DelayTooltip()" th:value="${character.sp}"/><br><br>
             </div>
         </div>
     </div>
@@ -39,91 +43,91 @@
         <div class="gear-list-item p-3">
             <ul style="list-style-type:none;" th:each="character : ${esochar}" class="charGear">
                 <li>
-                    <select class="gear_select">
+                    <select class="gear_select" name="headSlot">
                         <option th:value="0">Empty</option>
                         <option th:each="headSlots : ${headSlots}"
-                                th:value="${headSlots}"
+                                th:value="${headSlots.id}"
                                 th:text="${headSlots.name}"
                                 th:selected="${headSlots == character.headSlot}"/>
                     </select>
                 </li>
                 <li>
-                    <select class="gear_select">
+                    <select class="gear_select" name="shoulderSlot">
                         <option th:value="0">Empty</option>
                         <option th:each="shoulderSlots : ${shoulderSlots}"
-                                th:value="${shoulderSlots}"
+                                th:value="${shoulderSlots.id}"
                                 th:text="${shoulderSlots.name}"
                                 th:selected="${shoulderSlots == character.shoulderSlot}"/>
                     </select>
                 </li>
                 <li>
-                    <select class="gear_select">
+                    <select class="gear_select" name="bodySlot">
                         <option th:value="0">Empty</option>
                         <option th:each="bodySlots : ${bodySlots}"
-                                th:value="${bodySlots}"
+                                th:value="${bodySlots.id}"
                                 th:text="${bodySlots.name}"
                                 th:selected="${bodySlots == character.bodySlot}"/>
                     </select>
                 </li>
                 <li>
-                    <select class="gear_select">
+                    <select class="gear_select" name="waistSlot">
                         <option th:value="0">Empty</option>
                         <option th:each="waistSlots : ${waistSlots}"
-                                th:value="${waistSlots}"
+                                th:value="${waistSlots.id}"
                                 th:text="${waistSlots.name}"
                                 th:selected="${waistSlots == character.waistSlot}"/>
                     </select>
                 </li>
                 <li>
-                    <select class="gear_select">
+                    <select class="gear_select" name="handSlot">
                         <option th:value="0">Empty</option>
                         <option th:each="handSlots : ${handSlots}"
-                                th:value="${handSlots}"
+                                th:value="${handSlots.id}"
                                 th:text="${handSlots.name}"
                                 th:selected="${handSlots == character.handSlot}"/>
                     </select>
                 </li>
                 <li>
-                    <select class="gear_select">
+                    <select class="gear_select" name="bootsSlot">
                         <option th:value="0">Empty</option>
                         <option th:each="bootsSlots : ${bootsSlots}"
-                                th:value="${bootsSlots}"
+                                th:value="${bootsSlots.id}"
                                 th:text="${bootsSlots.name}"
                                 th:selected="${bootsSlots == character.bootsSlot}"/>
                     </select>
                 </li>
                 <li>
-                    <select class="gear_select">
+                    <select class="gear_select" name="legSlot">
                         <option th:value="0">Empty</option>
                         <option th:each="legSlots : ${legSlots}"
-                                th:value="${legSlots}"
+                                th:value="${legSlots.id}"
                                 th:text="${legSlots.name}"
                                 th:selected="${legSlots == character.legSlot}"/>
                     </select>
                 </li>
                 <li>
-                    <select class="gear_select">
+                    <select class="gear_select" name="leftRing">
                         <option th:value="0">Empty</option>
                         <option th:each="ringSlots : ${ringSlots}"
-                                th:value="${ringSlots}"
+                                th:value="${ringSlots.id}"
                                 th:text="${ringSlots.name}"
                                 th:selected="${ringSlots == character.leftRing}"/>
                     </select>
                 </li>
                 <li>
-                    <select class="gear_select">
+                    <select class="gear_select" name="rightRing">
                         <option th:value="0">Empty</option>
                         <option th:each="ringSlots : ${ringSlots}"
-                                th:value="${ringSlots}"
+                                th:value="${ringSlots.id}"
                                 th:text="${ringSlots.name}"
                                 th:selected="${ringSlots == character.rightRing}"/>
                     </select>
                 </li>
                 <li>
-                    <select class="gear_select">
+                    <select class="gear_select" name="neckSlot">
                         <option th:value="0">Empty</option>
                         <option th:each="neckSlots : ${neckSlots}"
-                                th:value="${neckSlots}"
+                                th:value="${neckSlots.id}"
                                 th:text="${neckSlots.name}"
                                 th:selected="${neckSlots == character.neckSlot}"/>
                     </select>
@@ -131,9 +135,11 @@
             </ul>
         </div>
     </div>
-    <div class="col-12 col-md-6 p-5">.col-6 .col-md-4</div>
-    <div class="col-12 col-md-6 p-5">.col-6 .col-md-4</div>
 </div>
+    <div class="text-center m-4">
+        <button type="submit" class="btn btn-default">Save</button>
+    </div>
+</form>
 <hr>
 <!--Bottom Footer-->
 <div class="bottom section-padding">

@@ -39,16 +39,66 @@
     <div class="col-12 col-md-6 center-block text-center">
         <div class="gear-list-item p-3">
             <ul style="list-style-type:none;" th:each="character : ${esochar}" class="charGear">
-                <li th:text="${character.headSlot?.name}"/>
-                <li th:text="${character.shoulderSlot?.name}"/>
-                <li th:text="${character.bodySlot?.name}"/>
-                <li th:text="${character.waistSlot?.name}"/>
-                <li th:text="${character.handSlot?.name}"/>
-                <li th:text="${character.legSlot?.name}"/>
-                <li th:text="${character.bootsSlot?.name}"/>
-                <li th:text="${character.leftRing?.name}"/>
-                <li th:text="${character.rightRing?.name}"/>
-                <li th:text="${character.neckSlot?.name}"/>
+                <li data-toggle="collapse" data-target="#headSlotInfo">
+                    <p th:text="${character.headSlot?.name}"/>
+                    <div id="headSlotInfo" class="collapse">
+                        <p th:text="${character.headSlot?.source}">
+                    </div>
+                </li>
+                <li data-toggle="collapse" data-target="#shoulderSlotInfo">
+                    <p th:text="${character.shoulderSlot?.name}"/>
+                    <div id="shoulderSlotInfo" class="collapse">
+                        <p th:text="${character.shoulderSlot?.source}">
+                    </div>
+                </li>
+                <li data-toggle="collapse" data-target="#bodySlotInfo">
+                    <p th:text="${character.bodySlot?.name}"/>
+                    <div id="bodySlotInfo" class="collapse">
+                        <p th:text="${character.bodySlot?.source}">
+                    </div>
+                </li>
+                <li data-toggle="collapse" data-target="#waistSlotInfo">
+                    <p th:text="${character.waistSlot?.name}"/>
+                    <div id="waistSlotInfo" class="collapse">
+                        <p th:text="${character.waistSlot?.source}">
+                    </div>
+                </li>
+                <li data-toggle="collapse" data-target="#handSlotInfo">
+                    <p th:text="${character.handSlot?.name}"/>
+                    <div id="handSlotInfo" class="collapse">
+                        <p th:text="${character.handSlot?.source}">
+                    </div>
+                </li>
+                <li data-toggle="collapse" data-target="#legSlotInfo">
+                    <p th:text="${character.legSlot?.name}"/>
+                    <div id="legSlotInfo" class="collapse">
+                        <p th:text="${character.legSlot?.source}">
+                    </div>
+                </li>
+                <li data-toggle="collapse" data-target="#bootsSlotInfo">
+                    <p th:text="${character.bootsSlot?.name}"/>
+                    <div id="bootsSlotInfo" class="collapse">
+                        <p th:text="${character.bootsSlot?.source}">
+                    </div>
+                </li>
+                <li data-toggle="collapse" data-target="#leftRingInfo">
+                    <p th:text="${character.leftRing?.name}"/>
+                    <div id="leftRingInfo" class="collapse">
+                        <p th:text="${character.leftRing?.source}">
+                    </div>
+                </li>
+                <li data-toggle="collapse" data-target="#rightRingInfo">
+                    <p th:text="${character.rightRing?.name}"/>
+                    <div id="rightRingInfo" class="collapse">
+                        <p th:text="${character.rightRing?.source}">
+                    </div>
+                </li>
+                <li data-toggle="collapse" data-target="#neckSlotInfo">
+                    <p th:text="${character.neckSlot?.name}"/>
+                    <div id="neckSlotInfo" class="collapse">
+                        <p th:text="${character.neckSlot?.source}">
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

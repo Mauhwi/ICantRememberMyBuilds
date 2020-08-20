@@ -22,6 +22,10 @@ public class Esoarmor extends EsoInventory {
         this.slot = slot;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
     public Esoarmor(String name, String slot, String source) {
         this.name = name;
         this.slot = slot;
