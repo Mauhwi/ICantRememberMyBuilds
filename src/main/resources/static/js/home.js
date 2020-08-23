@@ -1,54 +1,58 @@
-var _timer = 0;
-
-function DelayTooltip() {
-    if (_timer)
-    window.clearTimeout(_timer);
-    _timer = window.setTimeout(function() {
-        keyPress();
-    }, 2000);
-}
-
-function keyPress() {
-    document.getElementById('hpTooltip').style.opacity = '0';
-    document.getElementById('mpTooltip').style.opacity = '0';
-    document.getElementById('spTooltip').style.opacity = '0';
-}
-
-function checkhp() {
-    var hpv = document.getElementById('hp').value;
-    var mpv = document.getElementById('mp').value;
-    var spv = document.getElementById('sp').value;
-    if (hpv > 64) {
-        document.getElementById('hpTooltip').style.opacity = '1';
-        document.getElementById('hpTooltip').setAttribute('data-tooltip', "Can't be more than 64");
+$(document).ready(function() {
+  $("#hp").focusout(function() {
+    var hpv = $("#hp").val();
+    var mpv = $("#mp").val();
+    var spv = $("#sp").val();
+    if (hpv > 62) {
+      $("#hpTooltip").css("opacity", "1");
+      $("#hpTooltip").attr("data-tooltip", "Can't be more than 64");
+      setTimeout(function() {
+        $("#hpTooltip").css("opacity", "0");
+      }, 2000);
     } else if (mpv > 64 || spv > 64 || ((mpv + spv) > 64) || ((hpv + mpv) > 64) || ((hpv + spv) > 64)) {
-        document.getElementById('hpTooltip').style.opacity = '1';
-        document.getElementById('hpTooltip').setAttribute('data-tooltip', "Sum of all attributes can't be more than 64");
+      $("#hpTooltip").css("opacity", "1");
+      $("#hpTooltip").attr("data-tooltip", "Sum of all attributes can't be more than 64");
+      setTimeout(function() {
+        $("#hpTooltip").css("opacity", "0");
+      }, 2000);
     }
-}
+  });
 
-function checkmp() {
-    var hpv = document.getElementById('hp').value;
-    var mpv = document.getElementById('mp').value;
-    var spv = document.getElementById('sp').value;
-    if (mpv > 64) {
-        document.getElementById('mpTooltip').style.opacity = '1';
-        document.getElementById('mpTooltip').setAttribute('data-tooltip', "Can't be more than 64");
-    } else if (hpv > 64 || spv > 64 || ((hpv + spv) > 64) || ((hpv + mpv) > 64) || ((mpv + spv) > 64)) {
-        document.getElementById('mpTooltip').style.opacity = '1';
-        document.getElementById('mpTooltip').setAttribute('data-tooltip', "Sum of all attributes can't be more than 64");
-    }
-}
+  $("#mp").focusout(function() {
+      var hpv = $("#hp").val();
+      var mpv = $("#mp").val();
+      var spv = $("#sp").val();
+      if (mpv > 62) {
+        $("#mpTooltip").css("opacity", "1");
+        $("#mpTooltip").attr("data-tooltip", "Can't be more than 64");
+        setTimeout(function() {
+          $("#mpTooltip").css("opacity", "0");
+        }, 2000);
+      } else if (hpv > 64 || spv > 64 || ((mpv + spv) > 64) || ((hpv + mpv) > 64) || ((hpv + spv) > 64)) {
+        $("#mpTooltip").css("opacity", "1");
+        $("#mpTooltip").attr("data-tooltip", "Sum of all attributes can't be more than 64");
+        setTimeout(function() {
+          $("#mpTooltip").css("opacity", "0");
+        }, 2000);
+      }
+    });
 
-function checksp() {
-    var hpv = document.getElementById('hp').value;
-    var mpv = document.getElementById('mp').value;
-    var spv = document.getElementById('sp').value;
-    if (spv > 64) {
-        document.getElementById('spTooltip').style.opacity = '1';
-        document.getElementById('spTooltip').setAttribute('data-tooltip', "Can't be more than 64");
-    } else if (hpv > 64 || mpv > 64 || ((hpv + spv) > 64)) {
-        document.getElementById('spTooltip').style.opacity = '1';
-        document.getElementById('spTooltip').setAttribute('data-tooltip', "Sum of all attributes can't be more than 64");
-    }
-}
+    $("#sp").focusout(function() {
+        var hpv = $("#hp").val();
+        var mpv = $("#mp").val();
+        var spv = $("#sp").val();
+        if (spv > 62) {
+          $("#spTooltip").css("opacity", "1");
+          $("#spTooltip").attr("data-tooltip", "Can't be more than 64");
+          setTimeout(function() {
+            $("#spTooltip").css("opacity", "0");
+          }, 2000);
+        } else if (mpv > 64 || hpv > 64 || ((mpv + spv) > 64) || ((hpv + mpv) > 64) || ((hpv + spv) > 64)) {
+          $("#spTooltip").css("opacity", "1");
+          $("#spTooltip").attr("data-tooltip", "Sum of all attributes can't be more than 64");
+          setTimeout(function() {
+            $("#spTooltip").css("opacity", "0");
+          }, 2000);
+        }
+      });
+});

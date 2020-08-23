@@ -75,17 +75,20 @@ public class CharacterController {
                                 @RequestParam Integer legSlot, @RequestParam Integer leftRing, @RequestParam Integer rightRing,
                                 @RequestParam Integer neckSlot, Model model) {
         Esochar esochar = charRepository.findById(id).orElseThrow(() -> new RuntimeException( "No character found" ));
-        Esoarmor headSlot1 = armorRepository.findById(headSlot).orElseThrow(() -> new RuntimeException( "No armor found" ));
-        Esoarmor shoulderSlot1 = armorRepository.findById(shoulderSlot).orElseThrow(() -> new RuntimeException( "No armor found" ));
-        Esoarmor bodySlot1 = armorRepository.findById(bodySlot).orElseThrow(() -> new RuntimeException( "No armor found" ));
-        Esoarmor handSlot1 = armorRepository.findById(handSlot).orElseThrow(() -> new RuntimeException( "No armor found" ));
-        Esoarmor waistSlot1 = armorRepository.findById(waistSlot).orElseThrow(() -> new RuntimeException( "No armor found" ));
-        Esoarmor legSlot1 = armorRepository.findById(legSlot).orElseThrow(() -> new RuntimeException( "No armor found" ));
-        Esoarmor bootsSlot1 = armorRepository.findById(bootsSlot).orElseThrow(() -> new RuntimeException( "No armor found" ));
-        Esoarmor leftRing1 = armorRepository.findById(leftRing).orElseThrow(() -> new RuntimeException( "No armor found" ));
-        Esoarmor rightRing1 = armorRepository.findById(rightRing).orElseThrow(() -> new RuntimeException( "No armor found" ));
-        Esoarmor neckSlot1 = armorRepository.findById(neckSlot).orElseThrow(() -> new RuntimeException( "No armor found" ));
+        Esoarmor headSlot1 = armorRepository.findById(headSlot).orElse(null);
+        Esoarmor shoulderSlot1 = armorRepository.findById(shoulderSlot).orElse(null);
+        Esoarmor bodySlot1 = armorRepository.findById(bodySlot).orElse(null);
+        Esoarmor handSlot1 = armorRepository.findById(handSlot).orElse(null);
+        Esoarmor waistSlot1 = armorRepository.findById(waistSlot).orElse(null);
+        Esoarmor legSlot1 = armorRepository.findById(legSlot).orElse(null);
+        Esoarmor bootsSlot1 = armorRepository.findById(bootsSlot).orElse(null);
+        Esoarmor leftRing1 = armorRepository.findById(leftRing).orElse(null);
+        Esoarmor rightRing1 = armorRepository.findById(rightRing).orElse(null);
+        Esoarmor neckSlot1 = armorRepository.findById(neckSlot).orElse(null);
         esochar.setAllGear(headSlot1, shoulderSlot1, bodySlot1, handSlot1, waistSlot1, legSlot1, bootsSlot1,leftRing1, rightRing1, neckSlot1);
+        esochar.setHp(hp);
+        esochar.setMp(mp);
+        esochar.setSp(sp);
         charRepository.save(esochar);
         return "redirect:/character/{id}";
     }

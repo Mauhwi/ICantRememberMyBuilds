@@ -40,61 +40,61 @@
         <div class="gear-list-item p-3">
             <ul style="list-style-type:none;" th:each="character : ${esochar}" class="charGear">
                 <li data-toggle="collapse" data-target="#headSlotInfo">
-                    <p th:text="${character.headSlot?.name}"/>
+                    <p th:text="${character.headSlot?.name}?: '(Empty slot)'"/>
                     <div id="headSlotInfo" class="collapse">
                         <p th:text="${character.headSlot?.source}">
                     </div>
                 </li>
                 <li data-toggle="collapse" data-target="#shoulderSlotInfo">
-                    <p th:text="${character.shoulderSlot?.name}"/>
+                    <p th:text="${character.shoulderSlot?.name}?: '(Empty slot)'"/>
                     <div id="shoulderSlotInfo" class="collapse">
                         <p th:text="${character.shoulderSlot?.source}">
                     </div>
                 </li>
                 <li data-toggle="collapse" data-target="#bodySlotInfo">
-                    <p th:text="${character.bodySlot?.name}"/>
+                    <p th:text="${character.bodySlot?.name}?: '(Empty slot)'"/>
                     <div id="bodySlotInfo" class="collapse">
                         <p th:text="${character.bodySlot?.source}">
                     </div>
                 </li>
                 <li data-toggle="collapse" data-target="#waistSlotInfo">
-                    <p th:text="${character.waistSlot?.name}"/>
+                    <p th:text="${character.waistSlot?.name}?: '(Empty slot)'"/>
                     <div id="waistSlotInfo" class="collapse">
                         <p th:text="${character.waistSlot?.source}">
                     </div>
                 </li>
                 <li data-toggle="collapse" data-target="#handSlotInfo">
-                    <p th:text="${character.handSlot?.name}"/>
+                    <p th:text="${character.handSlot?.name}?: '(Empty slot)'"/>
                     <div id="handSlotInfo" class="collapse">
                         <p th:text="${character.handSlot?.source}">
                     </div>
                 </li>
                 <li data-toggle="collapse" data-target="#legSlotInfo">
-                    <p th:text="${character.legSlot?.name}"/>
+                    <p th:text="${character.legSlot?.name}?: '(Empty slot)'"/>
                     <div id="legSlotInfo" class="collapse">
                         <p th:text="${character.legSlot?.source}">
                     </div>
                 </li>
                 <li data-toggle="collapse" data-target="#bootsSlotInfo">
-                    <p th:text="${character.bootsSlot?.name}"/>
+                    <p th:text="${character.bootsSlot?.name}?: '(Empty slot)'"/>
                     <div id="bootsSlotInfo" class="collapse">
                         <p th:text="${character.bootsSlot?.source}">
                     </div>
                 </li>
                 <li data-toggle="collapse" data-target="#leftRingInfo">
-                    <p th:text="${character.leftRing?.name}"/>
+                    <p th:text="${character.leftRing?.name}?: '(Empty slot)'"/>
                     <div id="leftRingInfo" class="collapse">
                         <p th:text="${character.leftRing?.source}">
                     </div>
                 </li>
                 <li data-toggle="collapse" data-target="#rightRingInfo">
-                    <p th:text="${character.rightRing?.name}"/>
+                    <p th:text="${character.rightRing?.name}?: '(Empty slot)'"/>
                     <div id="rightRingInfo" class="collapse">
                         <p th:text="${character.rightRing?.source}">
                     </div>
                 </li>
                 <li data-toggle="collapse" data-target="#neckSlotInfo">
-                    <p th:text="${character.neckSlot?.name}"/>
+                    <p th:text="${character.neckSlot?.name}?: '(Empty slot)'"/>
                     <div id="neckSlotInfo" class="collapse">
                         <p th:text="${character.neckSlot?.source}">
                     </div>

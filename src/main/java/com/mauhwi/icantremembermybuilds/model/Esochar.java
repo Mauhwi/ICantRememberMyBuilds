@@ -251,6 +251,7 @@ public class Esochar {
         this.imagePath = imagePath;
     }
 
+
     public void setAllGear(Esoarmor headSlot, Esoarmor shoulderSlot, Esoarmor bodySlot, Esoarmor handSlot,
                            Esoarmor waistSlot, Esoarmor legSlot, Esoarmor bootsSlot, Esoarmor leftRing,
                            Esoarmor rightRing, Esoarmor neckSlot) {
